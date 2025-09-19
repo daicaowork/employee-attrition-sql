@@ -1,5 +1,5 @@
 # 📊 Employee Attrition Analysis using SQL
-##📝 Project Introduction
+## 📝 Project Introduction
 ```
 This project explores employee attrition trends using SQL queries on an HR dataset.
 The main goal is to uncover insights that help HR departments improve retention strategies, optimize compensation policies, and identify risk factors for employee turnover.
