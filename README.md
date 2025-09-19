@@ -1,6 +1,19 @@
 # 📊 Employee Attrition Analysis using SQL
-
+##📝 Project Introduction
+```
+This project explores employee attrition trends using SQL queries on an HR dataset.
+The main goal is to uncover insights that help HR departments improve retention strategies, optimize compensation policies, and identify risk factors for employee turnover.
+Dataset: Includes employee demographics, department, job role, salary, tenure, promotions, marital status, distance from home, and more.
+Tools Used: SQL Server (queries and analysis).
+SQL Techniques Applied:
+Aggregate Functions (COUNT, SUM, AVG, ROUND)
+Conditional Logic (CASE WHEN)
+Window Functions (ROW_NUMBER, RANK, SUM() OVER, AVG() OVER)
+Common Table Expressions (CTEs)
+Subqueries and Cumulative Analysis
+```
 ## 📂 Business Questions & SQL Queries
+
 
 ---
 
