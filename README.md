@@ -99,7 +99,7 @@ GROUP BY Job_Role
 ORDER BY attrition_rate_percent DESC;
 ```
 
-###6. Average Monthly Income: Ex-Employees vs Current Employees
+### 6. Average Monthly Income: Ex-Employees vs Current Employees
 ```sql
 SELECT 
     employee_status,
@@ -114,7 +114,7 @@ FROM (
 GROUP BY employee_status;
 ```
 
-###7. Attrition Rate by Percent Salary Hike
+### 7. Attrition Rate by Percent Salary Hike
 ```sql
 SELECT  
     Percent_Salary_Hike,
@@ -130,7 +130,7 @@ GROUP BY Percent_Salary_Hike
 ORDER BY attrition_rate_percent DESC;
 ```
 
-###8. Highest Paid Employee in Each Department
+### 8. Highest Paid Employee in Each Department
 ```sql
 SELECT *
 FROM (
@@ -144,7 +144,7 @@ FROM (
 WHERE salary_rank = 1;
 
 ```
-###9. Top 5 Longest Commutes among Current Employees
+### 9. Top 5 Longest Commutes among Current Employees
 ```sql
 SELECT TOP 5
     Employee_Number,
@@ -154,7 +154,7 @@ WHERE Attrition = 'No'
 ORDER BY Distance_From_Home DESC;
 
 ```
-###10. Cumulative Attrition Trend by Years Since Last Promotion
+### 10. Cumulative Attrition Trend by Years Since Last Promotion
 ```sql
 WITH cte_attrition_flag AS (
     SELECT *,
@@ -183,7 +183,7 @@ FROM agg_promotion
 ORDER BY Years_Since_Last_Promotion;
 
 ```
-###11. Employees Above Department Average Tenure with Attrition Rate
+### 11. Employees Above Department Average Tenure with Attrition Rate
 ```sql
 WITH cte_avg_tenure AS (
     SELECT *,
