@@ -2,8 +2,12 @@
 
 ## 📂 Business Questions & SQL Queries
 
-\\\sql
+---
 
+### 1. Attrition Rate by Department
+Calculate attrition rate across departments.  
+
+```sql
 -- 1. Attrition Rate by Department
 SELECT
     Department,
@@ -16,9 +20,11 @@ FROM (
     FROM hr_attrition
 ) AS attrition_flag
 GROUP BY Department;
+``` 
 
-
--- 2. Attrition Rate by Gender within Each Department
+---
+### 2. Attrition Rate by Gender within Each Department
+```sql
 SELECT
     Department,
     Gender,
@@ -32,6 +38,7 @@ FROM (
 ) AS attrition_flag
 GROUP BY Department, Gender;
 
+``` 
 
 -- 3. Attrition Rate by Age Band
 SELECT
