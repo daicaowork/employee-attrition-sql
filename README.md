@@ -40,7 +40,8 @@ GROUP BY Department, Gender;
 
 ``` 
 
--- 3. Attrition Rate by Age Band
+### 3. Attrition Rate by Age Band
+```sql
 SELECT
     CF_age_band,
     COUNT(*) AS total_employees,
@@ -53,8 +54,9 @@ FROM (
 ) AS attrition_flag
 GROUP BY CF_age_band;
 
-
--- 4. Attrition Rate by Marital Status
+``` 
+### 4. Attrition Rate by Marital Status
+```sql
 SELECT
     Marital_Status,
     COUNT(*) AS total_employees,
@@ -66,9 +68,10 @@ FROM (
     FROM hr_attrition
 ) AS attrition_flag
 GROUP BY Marital_Status;
+```
 
-
--- 5. Top 3 Job Roles with Highest Attrition Rates
+### 5. Top 3 Job Roles with Highest Attrition Rates
+```sql
 SELECT TOP 3
     Job_Role,
     COUNT(*) AS total_employees,
@@ -81,9 +84,10 @@ FROM (
 ) AS attrition_flag
 GROUP BY Job_Role
 ORDER BY attrition_rate_percent DESC;
+```
 
-
--- 6. Average Monthly Income: Ex-Employees vs Current Employees
+###6. Average Monthly Income: Ex-Employees vs Current Employees
+```sql
 SELECT 
     employee_status,
     AVG(Monthly_Income) AS avg_monthly_income
@@ -95,9 +99,10 @@ FROM (
     FROM hr_attrition
 ) AS income_flag
 GROUP BY employee_status;
+```
 
-
--- 7. Attrition Rate by Percent Salary Hike
+###7. Attrition Rate by Percent Salary Hike
+```sql
 SELECT  
     Percent_Salary_Hike,
     COUNT(*) AS total_employees,
@@ -110,9 +115,10 @@ FROM (
 ) AS attrition_flag
 GROUP BY Percent_Salary_Hike
 ORDER BY attrition_rate_percent DESC;
+```
 
-
--- 8. Highest Paid Employee in Each Department
+###8. Highest Paid Employee in Each Department
+```sql
 SELECT *
 FROM (
     SELECT
@@ -124,8 +130,9 @@ FROM (
 ) AS ranked_salaries
 WHERE salary_rank = 1;
 
-
--- 9. Top 5 Longest Commutes among Current Employees
+```
+###9. Top 5 Longest Commutes among Current Employees
+```sql
 SELECT TOP 5
     Employee_Number,
     Distance_From_Home
@@ -133,8 +140,9 @@ FROM hr_attrition
 WHERE Attrition = 'No'
 ORDER BY Distance_From_Home DESC;
 
-
--- 10. Cumulative Attrition Trend by Years Since Last Promotion
+```
+###10. Cumulative Attrition Trend by Years Since Last Promotion
+```sql
 WITH cte_attrition_flag AS (
     SELECT *,
            CASE WHEN Attrition = 'Yes' THEN 1 ELSE 0 END AS is_attrition
@@ -161,8 +169,9 @@ SELECT
 FROM agg_promotion
 ORDER BY Years_Since_Last_Promotion;
 
-
--- 11. Employees Above Department Average Tenure with Attrition Rate
+```
+###11. Employees Above Department Average Tenure with Attrition Rate
+```sql
 WITH cte_avg_tenure AS (
     SELECT *,
            CAST(AVG(Years_At_Company) OVER (PARTITION BY Department) AS DECIMAL(10,2)) AS avg_years_in_dept,
@@ -198,3 +207,4 @@ SELECT
     ) AS attrition_rate_percent
 FROM cte_above_avg_tenure
 ORDER BY Department, Years_At_Company DESC;
+```
